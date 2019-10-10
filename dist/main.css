@@ -1,0 +1,17 @@
+/*
+* Grid-Layout-retrocompatible - v1.2.1
+* @jomarcardoso
+*/
+/*
+* param: number of columns wanted
+* return:   -ms-grid-columns: [list of columns];
+*           grid-template-columns: [list of columns];
+*/
+.grid {
+  display: -ms-grid;
+  display: grid; }
+
+section {
+  min-height: 100vh; }
+
+/*# sourceMappingURL=maps/main.css.map */

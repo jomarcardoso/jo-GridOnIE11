@@ -1,0 +1,26 @@
+{
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5",
+    "node-sass": "^4.12.0"
+  },
+  "name": "jo-gridonie11",
+  "description": "",
+  "version": "1.0.0",
+  "main": "./src/main.scss",
+  "scripts": {
+    "start": "gulp",
+    "build": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jomarcardoso/jo-GridOnIE11.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jomarcardoso/jo-GridOnIE11/issues"
+  },
+  "homepage": "https://github.com/jomarcardoso/jo-GridOnIE11#readme"
+}

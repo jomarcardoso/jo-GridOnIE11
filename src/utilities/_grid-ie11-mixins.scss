@@ -1,0 +1,102 @@
+/*
+* Grid-Layout-retrocompatible - v1.2.1
+* @jomarcardoso
+*/
+@mixin grid() {
+  display: -ms-grid;
+  display: grid;
+}
+
+@mixin grid-gap($gap) {
+  margin: #{-$gap / 2};
+  & > * {
+    margin: #{$gap / 2};
+  }
+}
+
+@mixin grid-column($column, $span) {
+  -ms-grid-column: $column;
+  -ms-grid-column-span: $span;
+  grid-column: $column / span $span;
+}
+
+@mixin grid-row($row, $span) {
+  -ms-grid-row: $row;
+  -ms-grid-row-span: $span;
+  grid-row: $row / span $span;
+}
+
+@mixin grid-template-columns($list) {
+  $value: null;
+  $-ms-value: null;
+
+  $cell: 0;
+  @for $i from 1 through length($list) {
+    $cell: $cell + nth($list, $i);
+  }
+
+  $percent-size: 100 / $cell;
+  $percent: "%";
+
+  @for $i from 1 through length($list) {
+    $value: $value #{nth($list, $i)}fr;
+    $-ms-value: $-ms-value #{nth($list, $i) * $percent-size}#{$percent};
+  }
+  -ms-grid-columns: $-ms-value;
+  grid-template-columns: $value;
+}
+
+/*
+* param: number of columns wanted
+* return:   -ms-grid-columns: [list of columns];
+*           grid-template-columns: [list of columns];
+*/
+@mixin grid-columns($columns) {
+  $value: null;
+  $-ms-value: null;
+
+  $percent-size: 100 / $columns;
+  $percent: "%";
+
+  @for $i from 1 through $columns {
+    $value: $value 1fr;
+    $-ms-value: $-ms-value #{1 * $percent-size}#{$percent};
+  }
+  -ms-grid-columns: $-ms-value;
+  grid-template-columns: $value;
+}
+
+@mixin grid-template-rows($list) {
+  $value: null;
+  $-ms-value: null;
+
+  $cell: 0;
+  @for $i from 1 through length($list) {
+    $cell: $cell + nth($list, $i);
+  }
+
+  $percent-size: 100 / $cell;
+  $percent: "%";
+
+  @for $i from 1 through length($list) {
+    $value: $value #{nth($list, $i)}fr;
+    $-ms-value: $-ms-value #{nth($list, $i)}fr;
+  }
+  -ms-grid-rows: $-ms-value;
+  grid-template-rows: $value;
+}
+
+@mixin grid-rows($rows) {
+  $value: null;
+  $-ms-value: null;
+
+  $percent-size: 100 / $rows;
+  $percent: "%";
+
+  @for $i from 1 through $rows {
+    $value: $value 1fr;
+    $-ms-value: $-ms-value #{1 * $percent-size}#{$percent};
+  }
+  -ms-grid-rows: $-ms-value;
+  grid-template-rows: $value;
+}

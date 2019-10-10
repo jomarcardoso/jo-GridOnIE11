@@ -1,0 +1,9 @@
+@import './utilities/grid-ie11-mixins';
+
+.grid {
+  @include grid();
+}
+
+section {
+  min-height: 100vh;
+}
